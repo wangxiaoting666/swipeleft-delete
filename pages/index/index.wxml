@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view style='height:{{height}}px;' scroll-y='{{scrollY}}' class='msg-list' bindscroll='onScroll'>
+    <view wx:for="{{msgList}}" wx:key="id" class='msg-item' animation='{{item.wrapAnimation}}'>
+      <view id='{{item.id}}' class='msg' animation='{{item.animation}}' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend'>
+        <image class='header-img' src="{{item.headerImg}}"></image>
+        <text class='user-name'>{{item.carid}}</text>
+        <text class='msg-text'>{{item.msgText}}</text>
+        <image class='site-img' src="{{item.siteImg}}"></image>
+      </view>
+      <view class='msg-menu'>
+        <view id='{{item.id}}' class='menu-delete' bindtap='onDeleteMsgTap' bindlongtap='onDeleteMsgLongtap'>
+          删除
+        </view>
+        <view id='{{item.id}}' class='menu-mark' bindtap='onMarkMsgTap' bindlongtap='onMarkMsgLongtap'>
+          试驾
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
